@@ -24,10 +24,6 @@ function add(event)
 {
     event.preventDefault();
 
-    // const ulN = document.createElement('ul');
-    // ulN.classList.add('ul-todo');
-    // ulN.classList.add("no-completed");
-
     const div = document.createElement('div');
     div.classList.add('div-container');
     div.classList.add("no-completed");
@@ -106,8 +102,6 @@ function check(btn)
     {
         element.classList.add("bc");
         const father = element.parentElement;
-        // father.classList.toogle("no-completed");
-        // father.classList.add("completed");
         father.classList.add("completed");
         father.classList.toggle("no-completed");
     }
