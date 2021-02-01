@@ -1,4 +1,6 @@
-//DOM Selectors
+//Made by Erfanhanifezade@gmail.com
+
+//Selectors
 const button = document.querySelector('.add-list-button');
 const parag = document.querySelector('.input-text');
 const todoContainer = document.querySelector('.todo-container');
