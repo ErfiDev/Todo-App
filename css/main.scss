@@ -1,0 +1,240 @@
+$bc : "background-color";
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@font-face
+{
+    font-family: vazir;
+    src: url('../font/Vazir-FD.ttf');
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background-image: linear-gradient(to left,#1d3557 , #213c63);
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    height: 20vh;
+
+    h1{
+        text-align: center;
+        color: whitesmoke;
+        font-family: 'Poppins', sans-serif;
+        font-size: 27pt;
+        margin-top: 20px;
+    }
+}
+
+.section-form{
+    width: 100%;
+    height: auto;
+    form{
+        @include flex();
+        width: 100%;
+    
+        .input-container{
+            width: 50%;
+            margin-right: 5px;
+
+            .input-text{
+                #{$bc}: white;
+                border: none;
+                outline: none;
+                width: 100%;
+                padding: 0.5rem;
+                padding-left: 1rem;
+                font-size: 1.5rem;
+                border-radius: 4px;
+                font-family: 'Poppins', sans-serif;
+                transition: all 0.4s ease;
+                &:focus{
+                    #{$bc}: rgb(214, 211, 211);
+                }
+            }
+        }
+
+        .add-btn-container{
+            width: 20%;
+            .add-list-button{
+                border: none;
+                cursor: pointer;
+                font-size: 1.5rem;
+                padding: 0.5rem;
+                width: 100%;
+                font-family: 'Poppins', sans-serif;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    
+        .filter-div{
+            overflow: hidden;
+            position: relative;
+            width: 20%;
+            border-radius: 3px;
+
+            &::after{
+                content: "\25BC";
+                font-size: 1.5rem;
+                position: absolute;
+                top: 0.5rem;
+                right: 0.3rem;
+                color: white;
+            }
+    
+            .filter{
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                margin-left: 0.5rem;
+                width: 100%;
+                font-size: 1.5rem;
+                padding: 0.5rem;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                border-radius: 3px;
+                #{$bc}: #007bff;
+                color: white;
+                padding-left: 1.2rem;
+                transition: all 0.5s ease;
+                &:hover{
+                    #{$bc}: #005fc5;
+                }
+            }
+        }
+    }
+}
+
+.hr{
+    border: 3px #c608df solid;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.hr-a{
+    @extend .hr;
+    border-color: rgb(0, 255, 128);
+}
+
+
+.todo-container
+{
+    @include flex();
+    flex-direction: column;
+    
+    .ul-todo
+    {
+        width: 100%;
+        list-style: none;
+        transition: all 1s ease;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        .div-container{
+            @include flex();
+            width: 30%;
+            justify-content: space-around;
+            transition: all 0.5s ease-in-out;
+            margin: 1rem;
+            #{$bc}: white; 
+
+            li{
+                font-size: 2rem;
+                font-family: 'Poppins', sans-serif;
+                text-align: center;
+                text-transform: capitalize;
+                flex: 1;
+            }
+
+            button{
+                width: 70px;
+                border: none;
+                outline: none;
+                font-size: 17pt;
+                padding: 0.7rem;
+            }
+
+            .fa-check , .fa-trash{
+                pointer-events: none;
+            }
+
+            .btn-check{
+                background: #19c035;
+                color: white;
+                transition: background 0.5s ease;
+                &:hover{
+                    background: #17e439;
+                }
+            }
+
+            .btn-delete{
+                background: #cf2253;
+                color: white;
+                transition: background 0.5s ease;
+                &:hover{
+                    background: #f52323;
+                }
+            }
+        }
+    }
+
+    #clearbtn{
+        font-family: 'poppins' , sans-serif;
+        font-size: 1rem;
+    }
+}
+
+.completed{
+    text-decoration: line-through;
+    opacity: 0.2;
+    #{$bc}: rgb(214, 211, 211);
+}
+
+.transition-btn{
+    opacity: 0;
+}
+
+
+.dispaly
+{
+    display: none;
+}
+
+
+@media screen and (max-width: 1300px)
+{
+    .ul-todo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 820px)
+{
+    .form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
